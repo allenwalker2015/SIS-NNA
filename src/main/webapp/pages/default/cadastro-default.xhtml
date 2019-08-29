@@ -5,14 +5,14 @@
                 template="/WEB-INF/templates/template.xhtml">
 
     <ui:define name="title">
-        Cadastro Default
+        Prueba
     </ui:define>
 
     <ui:define name="body">
         <f:metadata>
         </f:metadata>
 
-        <adm:breadcrumb title="Cadastro Default" link="cadastro-default.xhtml?id="/>
+        <adm:breadcrumb title="Prueba" link="cadastro-default.xhtml?id="/>
         <h:form id="form" prependId="false">
             <p:focus/>
 
@@ -20,30 +20,30 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
-                        <p:commandButton value="Salvar" update="@form"
+                        <p:commandButton value="Guardar" update="@form"
                                          icon="fa fa-check" styleClass="btn-primary"/>
                         <p:spacer width="5"/>
 
-                        <p:commandButton value="Excluir" process="@this"
+                        <p:commandButton value="Eliminar" process="@this"
                                          icon="fa fa-trash"
                                          styleClass="btn-danger">
                         </p:commandButton>
                         <p:spacer width="5"/>
-                        <p:commandButton value="Voltar" immediate="true"
+                        <p:commandButton value="Cancelar" immediate="true"
                                          action="lista-default?faces-redirect=true"
                                          process="@this"
                                          icon="fa fa-close"/>
                                          
                     </div>
                     
-                    <p:splitButton value="Salvar" update="@form"
+                    <p:splitButton value="Guardar" update="@form"
                                    icon="fa fa-check"
                                    styleClass="hidden-md hidden-lg btn-primary">
                         <p:menuitem value="Excluir"
                                     process="@this"
                                     icon="fa fa-trash"/>
                         <p:separator/>
-                        <p:menuitem value="Voltar" action="lista-default?faces-redirect=true" process="@this"
+                        <p:menuitem value="Eliminar" action="lista-default?faces-redirect=true" process="@this"
                                     icon="fa fa-close"/>
                     </p:splitButton>
 
