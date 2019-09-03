@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="complaintProcess.User" table="user" catalog="glasswings2" optimistic-lock="version">
+        <id name="iduser" type="java.lang.Integer">
+            <column name="iduser" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="typeUser" class="complaintProcess.TypeUser" fetch="select">
+            <column name="type_user_id" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="createdUp" type="timestamp">
+            <column name="created_up" length="19" not-null="true" />
+        </property>
+        <property name="updatedUp" type="timestamp">
+            <column name="updated_up" length="19" />
+        </property>
+        <set name="userRoles" table="user_role" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="complaintProcess.UserRole" />
+        </set>
+        <set name="staffs" table="staff" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" unique="true">
+                    <comment>User id of staff member</comment>
+                </column>
+            </key>
+            <one-to-many class="complaintProcess.Staff" />
+        </set>
+    </class>
+</hibernate-mapping>

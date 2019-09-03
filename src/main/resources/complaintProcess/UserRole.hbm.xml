@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="complaintProcess.UserRole" table="user_role" catalog="glasswings2" optimistic-lock="version">
+        <id name="iduserRole" type="java.lang.Integer">
+            <column name="iduser_role" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="complaintProcess.Role" fetch="select">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="complaintProcess.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="status" type="byte">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="complaintProcess.Department" table="department" catalog="glasswings2" optimistic-lock="version">
+        <id name="iddepartment" type="java.lang.Integer">
+            <column name="iddepartment" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="createdUp" type="timestamp">
+            <column name="created_up" length="19" not-null="true" />
+        </property>
+        <property name="updatedUp" type="timestamp">
+            <column name="updated_up" length="19" />
+        </property>
+        <set name="staffs" table="staff" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="complaintProcess.Staff" />
+        </set>
+    </class>
+</hibernate-mapping>

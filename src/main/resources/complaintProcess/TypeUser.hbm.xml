@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="complaintProcess.TypeUser" table="type_user" catalog="glasswings2" optimistic-lock="version">
+        <id name="idtypeUser" type="java.lang.Integer">
+            <column name="idtype_user" />
+            <generator class="identity" />
+        </id>
+        <property name="typeUserName" type="string">
+            <column name="type_user_name" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="createdUp" type="timestamp">
+            <column name="created_up" length="19" not-null="true" />
+        </property>
+        <property name="updatedUp" type="timestamp">
+            <column name="updated_up" length="19" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="type_user_id" not-null="true" />
+            </key>
+            <one-to-many class="complaintProcess.User" />
+        </set>
+    </class>
+</hibernate-mapping>

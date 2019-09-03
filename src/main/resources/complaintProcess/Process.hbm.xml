@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="complaintProcess.Process" table="process" catalog="glasswings2" optimistic-lock="version">
+        <id name="idprocess" type="java.lang.Integer">
+            <column name="idprocess" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="complaint" class="complaintProcess.Complaint" fetch="select">
+            <column name="complaint_id" unique="true" />
+        </many-to-one>
+        <property name="status" type="string">
+            <column name="status" length="45" not-null="true" />
+        </property>
+        <property name="mailSent" type="byte">
+            <column name="mail_sent" not-null="true">
+                <comment>Sistema alerta a Punto de control</comment>
+            </column>
+        </property>
+        <property name="controlPointContacted" type="byte">
+            <column name="control_point_contacted" not-null="true">
+                <comment>Punto de Control ha sido avisado.</comment>
+            </column>
+        </property>
+        <property name="isThereEvidence" type="byte">
+            <column name="is_there_evidence" not-null="true">
+                <comment>Hay evidencia de los hechos sucedidos o no.</comment>
+            </column>
+        </property>
+        <property name="notificationToSuperior" type="byte">
+            <column name="notification_to_superior" not-null="true">
+                <comment>Si ya se comunicaron con su jefe o comit&#233; seg&#250;n el tipo de alerta.</comment>
+            </column>
+        </property>
+        <property name="verbalNotification" type="byte">
+            <column name="verbal_notification" not-null="true" />
+        </property>
+        <property name="writtenNotification" type="byte">
+            <column name="written_notification" not-null="true" />
+        </property>
+        <property name="recurrence" type="byte">
+            <column name="recurrence" not-null="true">
+                <comment>Si ha sucedido m&#225;s de una vez o no.</comment>
+            </column>
+        </property>
+        <property name="interruptContact" type="byte">
+            <column name="interrupt_contact" not-null="true">
+                <comment>Se ha interrumpido el contacto entre v&#237;ctima y acusado.</comment>
+            </column>
+        </property>
+        <property name="recurrenceReport" type="string">
+            <column name="recurrence_report" length="200" />
+        </property>
+        <property name="committeeEvaluation" type="string">
+            <column name="committee_evaluation" length="200" />
+        </property>
+        <property name="createdUp" type="timestamp">
+            <column name="created_up" length="19" not-null="true" />
+        </property>
+        <property name="updatedUp" type="timestamp">
+            <column name="updated_up" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
