@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
@@ -12,9 +13,21 @@
 
         <h2 class="align-center">
            Bienvenido al SIS NNA
+           
+
         </h2>
+        
+            <div class="container">
+                        <div class="item"> <!-- <h:commandButton id="BtnIni" value="Iniciar sesión" action="login"> </h:commandButton>-->
+                        <p:button value="Iniciar sesión" href="login.xhtml" />
+                        </div>
+                    <br/>
+                    <div class="item"> <p:button value="Entrar como invitado" outcome="login.xhtml" disabled="true" />
+                        <!-- <h:commandButton id="BtnInv" value="Iniciar como invitado" action="Second" > </h:commandButton> --></div>
+                     </div>
 
     </ui:define>
 
+   
 
 </ui:composition>
