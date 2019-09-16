@@ -2,7 +2,9 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                template="WEB-INF/templates/template.xhtml">
+                template="WEB-INF/templates/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="head-end">
         <ui:param name="renderBreadCrumb" value="false"/>
@@ -18,13 +20,25 @@
         </h2>
         
             <div class="container">
-                        <div class="item"> <!-- <h:commandButton id="BtnIni" value="Iniciar sesión" action="login"> </h:commandButton>-->
-                        <p:button value="Iniciar sesión" href="login.xhtml" />
+                        <div class="item"> <!-- <h:commandButton id="BtnIni" value="Iniciar sesiÃƒÂ³n" action="login"> </h:commandButton>-->
+                        <p:button value="Iniciar sesiÃ³n" href="test.xhtml" />
                         </div>
                     <br/>
-                    <div class="item"> <p:button value="Entrar como invitado" outcome="login.xhtml" disabled="true" />
+                    <div class="item"> <p:button value="Entrar como invitado" outcome="test.xhtml" disabled="true" />
                         <!-- <h:commandButton id="BtnInv" value="Iniciar como invitado" action="Second" > </h:commandButton> --></div>
                      </div>
+        
+        <!-- test table
+        <h:dataTable value="#{roleController.roleTitles}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                        <h:outputText value="#{item.username}"/>
+                    </h:column>
+                </h:dataTable>
+        
+        -->
 
     </ui:define>
 

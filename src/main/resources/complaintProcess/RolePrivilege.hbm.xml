@@ -1,24 +1,23 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="complaintProcess.RolePrivilege" table="role_privilege" catalog="glasswings2" optimistic-lock="version">
-        <id name="idrolePrivilege" type="java.lang.Integer">
-            <column name="idrole_privilege" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="privilege" class="complaintProcess.Privilege" fetch="select">
-            <column name="privilege_id" not-null="true" />
-        </many-to-one>
-        <many-to-one name="role" class="complaintProcess.Role" fetch="select">
-            <column name="role_id" not-null="true" />
-        </many-to-one>
-        <property name="status" type="byte">
-            <column name="status" not-null="true" />
-        </property>
-        <property name="comment" type="string">
-            <column name="comment" length="45" />
-        </property>
-    </class>
+  <class catalog="glasswings2" name="complaintProcess.RolePrivilege" optimistic-lock="version" table="role_privilege">
+    <id name="idrolePrivilege" type="java.lang.Integer">
+      <column name="idrole_privilege"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="complaintProcess.Privilege" fetch="select" name="privilege">
+      <column name="privilege_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="complaintProcess.Role" fetch="select" name="role">
+      <column name="role_id" not-null="true"/>
+    </many-to-one>
+    <property name="status" type="byte">
+      <column name="status" not-null="true"/>
+    </property>
+    <property name="comment" type="string">
+      <column length="45" name="comment"/>
+    </property>
+  </class>
 </hibernate-mapping>

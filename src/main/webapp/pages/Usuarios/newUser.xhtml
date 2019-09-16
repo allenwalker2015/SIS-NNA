@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
+                template="/WEB-INF/templates/template.xhtml">
+    
+    <ui:define name="Usuario nuevo">
+        Agregar Usuario
+    </ui:define>
+
+    <ui:define name="body">
+        <h2>Agregar Usuario </h2>
+        <f:metadata>
+        </f:metadata>
+        
+        <adm:breadcrumb title="userForm" link="newUser.xhtml"/>
+          <h:form id="form" prependId="false">             
+                    <p:growl id="growl" showDetail="true" life="2000" />              
+                    <p:focus context="form"/>
+
+                    <div class="box box-primary">
+                        <div class="box-header with-border">                    
+                            <div id="main-buttons" class="hidden-sm hidden-xs">
+                                <p:spacer width="5"/>
+
+                                <p:commandButton value="Guardar" 
+                                                 icon="fa fa-check" styleClass="btn-primary"
+                                                 update="growl"
+                                                 action="#{addUser.newUser}"/>
+                                <p:spacer width="5"/>
+                                
+                                <!-- add delete button
+                                 <p:commandButton value="Eliminar" process="@this"
+                                                 icon="fa fa-trash"
+                                                 styleClass="btn-danger" > -->
+                                </p:commandButton>
+                                <p:spacer width="5"/>
+                                <p:commandButton value="Cancelar" immediate="true"
+                                                 action="viewUsers?faces-redirect=true"
+                                                 process="@this"
+                                                 icon="fa fa-close"/>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="id" value="ID"/>
+                        </div>
+                       
+                        <div class="ui-g-12">
+                            <p:inputText id="id" value="#{addUser.id}" size="4" styleClass="form-control" required="true"/>
+                        </div>
+                    </div>
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="username" value="Usuario"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="username" value="#{addUser.username}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="password" value="Password"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:password id="password" value="#{addUser.password}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div> 
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="name" value="Nombre"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="name" value="#{addUser.name}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div>
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="lastName" value="Apellido"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="lastName" value="#{addUser.lastName}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div>
+                  
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            
+                             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                <p:outputLabel for="role" value="Rol " />
+                                    <p:selectOneMenu id="role" value="#{addUser.rolMenu}" style="width:125px" required="true" requiredMessage="Seleccione un rol">
+                                        <f:selectItem itemLabel="Select One" itemValue="#{null}" />
+                                        <f:selectItems value="#{addUser.roleSelection}"/>
+                                    </p:selectOneMenu> 
+                             </h:panelGrid>
+                            
+                            
+                            
+                        </div>
+                    </div>  
+                    
+                  <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+      
+                            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                <p:outputLabel for="depto" value="Departamento " />
+                                <p:selectOneMenu id="depto" value="#{addUser.deptMenu}" style="width:125px" required="true" requiredMessage="Seleccione un departamento">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{addUser.deptSelection}" />
+                                    </p:selectOneMenu> 
+                             </h:panelGrid>
+                        </div>
+                    </div> 
+                    
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+    
+                            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                <p:outputLabel for="com" value="Comite " />
+                                <p:selectOneMenu id="com" value="#{addUser.comMenu}" style="width:125px" required="true" requiredMessage="Seleccione un comite">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{addUser.comSelection}" />
+                                    </p:selectOneMenu> 
+                             </h:panelGrid>
+                            
+                        </div>
+                    </div> 
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="email" value="Email"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="email" value="#{addUser.email}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="alert" value="Alertas"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="alert" value="#{addUser.alert}" size="4"  styleClass="form-control" required="true"/>
+                        </div>
+                    </div>  
+                    
+                    
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:outputLabel for="estado" value="Estado" />
+                                    <p:selectOneRadio id="estado" value="#{addUser.state}" required="true" >
+                                        <f:selectItem itemLabel="Activo" itemValue="Activo" />
+                                        <f:selectItem itemLabel="Inactivo" itemValue="Inactivo" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid> 
+                           
+                        </div>
+                    </div> 
+                    
+                    
+                    <!-- TEST -->
+                    <!--
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="role" value="role"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="role" value="#{addUser.role}" size="4"  styleClass="form-control"/>
+                        </div>
+                    </div> -->
+                    <!--
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="depto" value="depto"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="depto" value="#{addUser.department}" size="4"  styleClass="form-control"/>
+                        </div>
+                    </div> -->
+                    <!--
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="comi" value="comi"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="comi" value="#{addUser.committee}" size="4"  styleClass="form-control"/>
+                        </div>
+                    </div>-->
+                    <!--
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="ste" value="Estado"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="ste" value="#{addUser.state}" size="4"  styleClass="form-control"/>
+                        </div>
+                    </div> -->
+                    
+                    <!-- test -->
+                    
+        </h:form>
+
+    </ui:define>
+</ui:composition>

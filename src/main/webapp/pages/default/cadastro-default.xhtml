@@ -56,9 +56,35 @@
                             <p:outputLabel for="id" value="ID"/>
                         </div>
                         <div class="ui-g-12">
-                            <p:inputText id="id" value="" size="4" readonly="true" styleClass="form-control"/>
+                            <p:inputText id="id" size="4" styleClass="form-control"/>
                         </div>
                     </div>
+              
+                      <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                <p:outputLabel for="role" value="Rol " />
+                                    <p:selectOneMenu id="role" value="#{addOptionsNewUser.rolMenu}" style="width:125px">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{addOptionsNewUser.roleSelection}" />
+                                    </p:selectOneMenu> 
+                             </h:panelGrid> 
+                        </div>
+                    </div>
+                    
+                     <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:outputLabel for="estado" value="Estado" />
+                                    <p:selectOneRadio id="estado" value="#{addUser.state}" >
+                                        <f:selectItem itemLabel="Activo" itemValue="Activo" />
+                                        <f:selectItem itemLabel="Inactivo" itemValue="Inactivo" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid> 
+                           
+                        </div>
+                    </div> 
+                    
                 </div>
             </div>
         </h:form>

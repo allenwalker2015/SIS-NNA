@@ -1,113 +1,112 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="complaintProcess.Complaint" table="complaint" catalog="glasswings2" optimistic-lock="version">
-        <id name="idcomplaint" type="java.lang.Integer">
-            <column name="idcomplaint" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="staff" class="complaintProcess.Staff" fetch="select">
-            <column name="staff_id">
-                <comment>Puede ser NULL porque puede ser an&#243;nima</comment>
-            </column>
-        </many-to-one>
-        <many-to-one name="typeAbuse" class="complaintProcess.TypeAbuse" fetch="select">
-            <column name="type_abuse_id" not-null="true" />
-        </many-to-one>
-        <property name="complaintCategory" type="byte">
-            <column name="complaint_category" not-null="true">
-                <comment>Categor&#237;a de alerta: Moderada o Grave</comment>
-            </column>
-        </property>
-        <property name="complaintType" type="byte">
-            <column name="complaint_type" not-null="true">
-                <comment>Tipo de Alerta: An&#243;nima o Directa</comment>
-            </column>
-        </property>
-        <property name="comment" type="string">
-            <column name="comment" length="200" not-null="true">
-                <comment>Descripcion de la queja.</comment>
-            </column>
-        </property>
-        <property name="date" type="date">
-            <column name="date" length="10" not-null="true" />
-        </property>
-        <property name="time" type="time">
-            <column name="time" length="8" not-null="true" />
-        </property>
-        <property name="status" type="string">
-            <column name="status" length="45" not-null="true" />
-        </property>
-        <property name="createdUp" type="timestamp">
-            <column name="created_up" length="19" not-null="true" />
-        </property>
-        <property name="updatedUp" type="timestamp">
-            <column name="updated_up" length="19" />
-        </property>
-        <property name="accused" type="string">
-            <column name="accused" length="45" not-null="true" />
-        </property>
-        <property name="program" type="string">
-            <column name="program" length="45" not-null="true" />
-        </property>
-        <property name="victimName" type="string">
-            <column name="victim_name" length="45" not-null="true" />
-        </property>
-        <property name="victimAge" type="int">
-            <column name="victim_age" not-null="true" />
-        </property>
-        <property name="victimGender" type="string">
-            <column name="victim_gender" length="45" not-null="true" />
-        </property>
-        <property name="victimGrade" type="string">
-            <column name="victim_grade" length="45" />
-        </property>
-        <property name="victimLocation" type="string">
-            <column name="victim_location" length="45" not-null="true" />
-        </property>
-        <property name="victionGuardian" type="string">
-            <column name="viction_guardian" length="45" not-null="true" />
-        </property>
-        <property name="victimAddress" type="string">
-            <column name="victim_address" length="45" />
-        </property>
-        <property name="confidentNumber" type="string">
-            <column name="confident_number" length="45" not-null="true" />
-        </property>
-        <property name="numberAbuse" type="java.lang.Integer">
-            <column name="number_abuse">
-                <comment>N&#250;mero de veces que ha ocurrido el abuso</comment>
-            </column>
-        </property>
-        <property name="isNotifiedGuardian" type="byte">
-            <column name="is_notified_guardian" not-null="true">
-                <comment>Se ha notificado o no al padre/representante</comment>
-            </column>
-        </property>
-        <property name="victimComment" type="string">
-            <column name="victim_comment" length="45" not-null="true" />
-        </property>
-        <property name="isVictimInDanger" type="byte">
-            <column name="is_victim_in_danger" not-null="true" />
-        </property>
-        <property name="processId" type="java.lang.Integer">
-            <column name="process_id" />
-        </property>
-        <property name="veracity" type="java.lang.Byte">
-            <column name="veracity" />
-        </property>
-        <property name="record" type="string">
-            <column name="record" length="200">
-                <comment>Acta final</comment>
-            </column>
-        </property>
-        <set name="processes" table="process" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="complaint_id" unique="true" />
-            </key>
-            <one-to-many class="complaintProcess.Process" />
-        </set>
-    </class>
+  <class catalog="glasswings2" name="complaintProcess.Complaint" optimistic-lock="version" table="complaint">
+    <id name="idcomplaint" type="java.lang.Integer">
+      <column name="idcomplaint"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="complaintProcess.Staff" fetch="select" name="staff">
+      <column name="staff_id">
+        <comment>Puede ser NULL porque puede ser anónima</comment>
+      </column>
+    </many-to-one>
+    <many-to-one class="complaintProcess.TypeAbuse" fetch="select" name="typeAbuse">
+      <column name="type_abuse_id" not-null="true"/>
+    </many-to-one>
+    <property name="complaintCategory" type="byte">
+      <column name="complaint_category" not-null="true">
+        <comment>Categoría de alerta: Moderada o Grave</comment>
+      </column>
+    </property>
+    <property name="complaintType" type="byte">
+      <column name="complaint_type" not-null="true">
+        <comment>Tipo de Alerta: Anónima o Directa</comment>
+      </column>
+    </property>
+    <property name="comment" type="string">
+      <column length="200" name="comment" not-null="true">
+        <comment>Descripcion de la queja.</comment>
+      </column>
+    </property>
+    <property name="date" type="date">
+      <column length="10" name="date" not-null="true"/>
+    </property>
+    <property name="time" type="time">
+      <column length="8" name="time" not-null="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="45" name="status" not-null="true"/>
+    </property>
+    <property name="createdUp" type="timestamp">
+      <column length="19" name="created_up" not-null="true"/>
+    </property>
+    <property name="updatedUp" type="timestamp">
+      <column length="19" name="updated_up"/>
+    </property>
+    <property name="accused" type="string">
+      <column length="45" name="accused" not-null="true"/>
+    </property>
+    <property name="program" type="string">
+      <column length="45" name="program" not-null="true"/>
+    </property>
+    <property name="victimName" type="string">
+      <column length="45" name="victim_name" not-null="true"/>
+    </property>
+    <property name="victimAge" type="int">
+      <column name="victim_age" not-null="true"/>
+    </property>
+    <property name="victimGender" type="string">
+      <column length="45" name="victim_gender" not-null="true"/>
+    </property>
+    <property name="victimGrade" type="string">
+      <column length="45" name="victim_grade"/>
+    </property>
+    <property name="victimLocation" type="string">
+      <column length="45" name="victim_location" not-null="true"/>
+    </property>
+    <property name="victionGuardian" type="string">
+      <column length="45" name="viction_guardian" not-null="true"/>
+    </property>
+    <property name="victimAddress" type="string">
+      <column length="45" name="victim_address"/>
+    </property>
+    <property name="confidentNumber" type="string">
+      <column length="45" name="confident_number" not-null="true"/>
+    </property>
+    <property name="numberAbuse" type="java.lang.Integer">
+      <column name="number_abuse">
+        <comment>Número de veces que ha ocurrido el abuso</comment>
+      </column>
+    </property>
+    <property name="isNotifiedGuardian" type="byte">
+      <column name="is_notified_guardian" not-null="true">
+        <comment>Se ha notificado o no al padre/representante</comment>
+      </column>
+    </property>
+    <property name="victimComment" type="string">
+      <column length="45" name="victim_comment" not-null="true"/>
+    </property>
+    <property name="isVictimInDanger" type="byte">
+      <column name="is_victim_in_danger" not-null="true"/>
+    </property>
+    <property name="processId" type="java.lang.Integer">
+      <column name="process_id"/>
+    </property>
+    <property name="veracity" type="java.lang.Byte">
+      <column name="veracity"/>
+    </property>
+    <property name="record" type="string">
+      <column length="200" name="record">
+        <comment>Acta final</comment>
+      </column>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="processes" table="process">
+      <key>
+        <column name="complaint_id" unique="true"/>
+      </key>
+      <one-to-many class="complaintProcess.Process"/>
+    </set>
+  </class>
 </hibernate-mapping>
