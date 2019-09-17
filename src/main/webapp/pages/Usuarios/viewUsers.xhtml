@@ -53,12 +53,12 @@
                             
 	                    <p:spacer width="5"/> -->
                             
-                     
+                     <!--
 	                    <p:commandButton value="Buscar Usuario(s)" 
 	                    				 oncomplete="PF('defaultSelecionadas').show()"
 	                    				 update="@(.ui-dialog)" 
 	                    				 styleClass="btn-info"
-	                                     icon="fa fa-search"/>
+	                                     icon="fa fa-search"/> -->
                             
                             
                             <p:spacer width="5"/>
@@ -150,13 +150,15 @@
 	            </div>
         	</h:form>
         	
-        	<p:dialog header="Buscar Selecionados" widgetVar="defaultSelecionadas" height="250"
+
+        <!-- Botón buscar
+        <p:dialog header="Buscar Selecionados" widgetVar="defaultSelecionadas" height="250"
                   	  width="400" responsive="true" styleClass="box-success">
 	            <p:dataList id="listaDefaultSelecionadas" value="" var="default"
 	                        type="definition">
 
 	            </p:dataList>
-			</p:dialog>
+			</p:dialog>-->
 
         
     </ui:define>
