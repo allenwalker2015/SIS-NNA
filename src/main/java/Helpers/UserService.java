@@ -60,6 +60,8 @@ public class UserService {
     //to know which one is being modified
     private static int userNumber;
     
+    //Log in variables
+    private static String Logged="Log in";
     
     
     //Initializing the Arrays
@@ -161,10 +163,10 @@ public class UserService {
         
         passwords=new ArrayList<String>();
         passwords.add("123");
-        passwords.add("456");
-        passwords.add("789");
-        passwords.add("101");
-        passwords.add("121");
+        passwords.add("123");
+        passwords.add("123");
+        passwords.add("123");
+        passwords.add("123");
         
         rolesGl=new ArrayList<String>();
         rolesGl.add("User");
@@ -352,7 +354,6 @@ public class UserService {
     
     //Roles, committees and departments to put in the selection box
     //Roles, comites y departamentos para búsqueda.
-
     public static List<String> getRolesGl() {
         return rolesGl;
     }
@@ -589,6 +590,17 @@ public class UserService {
     
     public static void setModPassword(int i, String mod){
         passwords.set(i, mod);  
+    }
+    
+    //Log in variables
+    //Variables de conexion de usuario
+
+    public static String getLogged() {
+        return Logged;
+    }
+
+    public static void setLogged(String Logged) {
+        UserService.Logged = Logged;
     }
     
     

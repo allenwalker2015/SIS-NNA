@@ -40,10 +40,7 @@
 
 			<h:form>
             	<div class="box box-primary">
-                	<div class="box-header with-border">
-                            
-                   <!-- 	<p:commandButton action="/pages/Usuarios/test?faces-redirect=true" ajax="false" icon="fa fa-plus"
-                         	            value="TEST" styleClass="btn-primary"/> -->
+                	<div class="box-header with-border">                            
                         
                         <p:commandButton action="newUser?faces-redirect=true" ajax="false" icon="fa fa-plus"
                          	            value="Nuevo usuario" styleClass="btn-primary"/>
@@ -56,6 +53,7 @@
                             
 	                    <p:spacer width="5"/> -->
                             
+                     
 	                    <p:commandButton value="Buscar Usuario(s)" 
 	                    				 oncomplete="PF('defaultSelecionadas').show()"
 	                    				 update="@(.ui-dialog)" 
@@ -77,7 +75,7 @@
 	                                 rowsPerPageTemplate="5,10,15,20,30"
                                          var="users" value="#{dtBasicView.users}"
                                          rowKey="#{users.id}"
-                                         emptyMessage="No se encontró al usuario con ese dato."
+                                         emptyMessage="No se encontro al usuario con ese dato."
                                          filteredValue="#{dtBasicView.filteredUsers}"
                                          
                                          >
@@ -106,7 +104,7 @@
                                     <h:outputText value="#{users.lastName}" />
                                 </p:column>
                                                                                 
-                                <!-- Usar selection box -->
+                                <!-- User selection box -->
                                 <p:column headerText="Rol" filterBy="#{users.role}" filterMatchMode="contains">  
                                     <h:outputText value="#{users.role}" />
                                 </p:column>
@@ -118,6 +116,7 @@
                                 <p:column headerText="Comite" filterBy="#{users.committee}" filterMatchMode="contains">
                                     <h:outputText value="#{users.committee}" />
                                 </p:column>
+                                <!-- User selection box -->
                                 
                                 <p:column headerText="Email" filterBy="#{users.email}" filterMatchMode="contains">
                                     <h:outputText value="#{users.email}" />
@@ -146,35 +145,8 @@
 	                        	
 	                    </p:dataTable>
                             
-                           
-                           <!-- 
-                            <p:dataTable var="car" value="#{dtBasicView.users}">
-                                <p:column headerText="Id">
-                                    <h:outputText value="#{car.id}" />
-                                </p:column>
-
-                                <p:column headerText="Year">
-                                    <h:outputText value="#{car.year}" />
-                                </p:column>
-
-                                <p:column headerText="Brand">
-                                    <h:outputText value="#{car.brand}" />
-                                </p:column>
-
-                                <p:column headerText="Color">
-                                    <h:outputText value="#{car.color}" />
-                                </p:column>
-                                
-                                <p:column headerText="Price">
-                                    <h:outputText value="#{car.price}" />
-                                </p:column>
-                                
-                                <p:column headerText="Sold State">
-                                    <h:outputText value="#{car.soldState}" />
-                                </p:column>
-                            </p:dataTable>
-                            -->
-					</div>
+        
+			</div>
 	            </div>
         	</h:form>
         	

@@ -26,28 +26,9 @@ public class InfoUsuario {
     private String email;
     private String alerts;
     private boolean state;    
-    
-    
-    /*
-    private int year;
-    private String color;
-    private String brand;
-    private int price;*/
-    
-    
+       
     
     //list.add(new InfoUsuario(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));
-    /*
-    public InfoUsuario(String id, String brand, int year,String color, int price, boolean soldState){
-        
-       this.id=id;
-       this.year=year;
-       this.color=color;
-       this.brand=brand;
-       this.price=price;
-       this.state=soldState;
-        
-    }*/
     
     public InfoUsuario(String id, String username, String name,String lastName,String role,String department,String committee, String email,String alerts, boolean state,String password){
                 
@@ -156,54 +137,6 @@ public class InfoUsuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-    
-    
-    /*
-    
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public boolean isSoldState() {
-        return state;
-    }
-
-    public void setSoldState(boolean soldState) {
-        this.state = soldState;
-    }*/
-
-   
-    
     
    
 }

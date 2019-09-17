@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
+                template="/WEB-INF/templates/template.xhtml">
+    
+    <ui:define name="Iniciar Sesion">
+        Iniciar Sesion
+    </ui:define>
+    
+
+    <ui:define name="body">
+        
+<div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign In</h5>
+                            <h:form class="form-signin" >
+                               <p:growl id="growl" sticky="true" showDetail="true" life="3000" /> 
+                                <div class="form-label-group">                                    
+                                    <p:inputText id="username" value="#{loginTest.username}" size="4"  styleClass="form-control" required="true"/>
+                                    <label>Username</label>
+                                </div>
+                                <div class="form-label-group">  
+                                    <p:password id="password" value="#{loginTest.password}" size="4"  styleClass="form-control" required="true"/>
+                                    <label>Password</label>          
+                                </div>
+
+                                <p:commandButton class="btn btn-lg btn-primary btn-block text-uppercase" value="Sign in" action="#{loginTest.login}"
+                                                 ajax="false" update="growl"/>                                
+
+                            </h:form>
+                            
+                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+   
+
+</ui:composition>

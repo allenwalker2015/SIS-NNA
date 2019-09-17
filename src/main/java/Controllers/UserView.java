@@ -78,8 +78,7 @@ public class UserView implements Serializable {
      }
    }
    
-   public String modifyUser(InfoUsuario user){
-       
+   public String modifyUser(InfoUsuario user){       
        userNumber= users.indexOf(user);
        UserService.setUserNumber(userNumber);
        
