@@ -27,7 +27,9 @@ public class ModUser {
     //Datos del usuario
     private String id;
     private String username;
+    
     private String password;
+    
     private String name;
     private String lastName;
     private String role;
@@ -114,7 +116,9 @@ public class ModUser {
         
         id=UserService.getIdMod();
         username=UserService.getUsernameMod();
-        password=UserService.getPassMod();
+        
+       // password=UserService.getPassMod();
+        
         name=UserService.getNameMod();
         lastName=UserService.getLastNameMod();
         rolMenu=UserService.getRoleMod();
@@ -186,7 +190,9 @@ public class ModUser {
         UserService.setModId(userNumber,id);
         UserService.setModUsername(userNumber,username);
         UserService.setModName(userNumber,name);
-        UserService.setModPassword(userNumber,password);
+        
+       // UserService.setModPassword(userNumber,password);
+        
         UserService.setModRole(userNumber,rolMenu);
         UserService.setModDepartment(userNumber,deptMenu);
         UserService.setModCommittee(userNumber,comMenu);
@@ -229,6 +235,7 @@ public class ModUser {
         this.username = username;
     }
 
+    
     public String getPassword() {
         return password;
     }
