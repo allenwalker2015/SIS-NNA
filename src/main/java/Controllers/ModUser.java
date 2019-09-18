@@ -28,7 +28,7 @@ public class ModUser {
     private String id;
     private String username;
     
-    private String password;
+    private String password; //pasword en la otra ventana.
     
     private String name;
     private String lastName;
@@ -117,7 +117,7 @@ public class ModUser {
         id=UserService.getIdMod();
         username=UserService.getUsernameMod();
         
-       // password=UserService.getPassMod();
+       // password=UserService.getPassMod(); //Password en la otra ventana
         
         name=UserService.getNameMod();
         lastName=UserService.getLastNameMod();
@@ -191,7 +191,7 @@ public class ModUser {
         UserService.setModUsername(userNumber,username);
         UserService.setModName(userNumber,name);
         
-       // UserService.setModPassword(userNumber,password);
+       // UserService.setModPassword(userNumber,password); //Password en la otra ventana.
         
         UserService.setModRole(userNumber,rolMenu);
         UserService.setModDepartment(userNumber,deptMenu);
@@ -208,6 +208,12 @@ public class ModUser {
         //Hasta el final que haya añadido todo.
         message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario modificado:", username);   
         FacesContext.getCurrentInstance().addMessage(null, message);    
+    }
+    
+    
+    public String modPassword(){
+
+        return "modPassword?faces-redirect=true";
     }
     
     
