@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="glasswings2" name="complaintProcess.Committee" optimistic-lock="version" table="committee">
+    <id name="idCommittee" type="java.lang.Integer">
+      <column name="idCommittee"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column length="45" name="name" not-null="true" unique="true"/>
+    </property>
+    <property name="createdUp" type="timestamp">
+      <column length="19" name="created_up" not-null="true"/>
+    </property>
+    <property name="updatedUp" type="timestamp">
+      <column length="19" name="updated_up"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="committeeStaffs" table="committee_staff">
+      <key>
+        <column name="committee_id" not-null="true"/>
+      </key>
+      <one-to-many class="complaintProcess.CommitteeStaff"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2019 12:10:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="glasswings2" name="complaintProcess.Staff" optimistic-lock="version" table="staff">
+    <id name="idstaff" type="java.lang.Integer">
+      <column name="idstaff"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="complaintProcess.Department" fetch="select" name="department">
+      <column name="department_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="complaintProcess.Role" fetch="select" name="role">
+      <column name="role_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="complaintProcess.User" fetch="select" name="user">
+      <column name="user_id" not-null="true" unique="true">
+        <comment>User id of staff member</comment>
+      </column>
+    </many-to-one>
+    <property name="name" type="string">
+      <column length="45" name="name" not-null="true"/>
+    </property>
+    <property name="lastname" type="string">
+      <column length="45" name="lastname" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email" not-null="true" unique="true"/>
+    </property>
+    <property name="status" type="string">
+      <column length="45" name="status" not-null="true"/>
+    </property>
+    <property name="createdUp" type="timestamp">
+      <column length="19" name="created_up" not-null="true"/>
+    </property>
+    <property name="updatedUp" type="timestamp">
+      <column length="19" name="updated_up"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="complaints" table="complaint">
+      <key>
+        <column name="staff_id">
+          <comment>Puede ser NULL porque puede ser anónima</comment>
+        </column>
+      </key>
+      <one-to-many class="complaintProcess.Complaint"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="committeeStaffs" table="committee_staff">
+      <key>
+        <column name="staff_id" not-null="true"/>
+      </key>
+      <one-to-many class="complaintProcess.CommitteeStaff"/>
+    </set>
+  </class>
+</hibernate-mapping>
